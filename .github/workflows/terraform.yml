@@ -7,6 +7,11 @@ on:
         - master
 
 
+permissions:
+  id-token: write
+  contents: read
+
+
 jobs:
   terraform-check:
     runs-on: ubuntu-latest
@@ -30,3 +35,13 @@ jobs:
 
       - name: Validate Terraform
         run: terraform validate
+
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: arn:aws:iam::509475591167:role/github-actions-terraform-role
+          aws-region: us-east-2
+
+      - name: Test AWS authentication
+        run: aws sts get-caller-identity
