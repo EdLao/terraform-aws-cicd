@@ -37,11 +37,11 @@ jobs:
         run: terraform validate
 
 
-      - name: Configure AWS credentials
-        uses: aws-action/configure-aws-credentials@v6.3.0
-        with:
-          role-to-assume: arn:aws:iam::509475591167:role/github-actions-terraform-role
-          aws-region: us-east-2
+#      - name: Configure AWS credentials
+#        uses: aws-action/configure-aws-credentials@v6.3.0
+#        with:
+#          role-to-assume: arn:aws:iam::509475591167:role/github-actions-terraform-role
+#          aws-region: us-east-2
 
-      - name: Test AWS authentication
-        run: aws sts get-caller-identity
+#      - name: Test AWS authentication
+#        run: aws sts get-caller-identity
