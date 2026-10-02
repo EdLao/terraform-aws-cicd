@@ -156,7 +156,8 @@ resource "aws_instance" "web" {
 
 
   tags = {
-    Name = "cicd-web-server"
+    Name        = "cicd-web-server"
+    Environment = "Production"
   }
 }
 
